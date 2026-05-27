@@ -1,0 +1,5 @@
+image_id: north_gate_offline
+modality: image
+description: 仓库北门摄像头状态为 offline，最近心跳超过 5 分钟，视频预览区域显示连接超时。
+ocr_text: 设备状态 offline；last heartbeat timeout；stream unavailable。
+

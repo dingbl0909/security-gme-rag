@@ -1,0 +1,31 @@
+services:
+  dots-ocr-gateway:
+    build:
+      context: ./services/dots_ocr_gateway
+    container_name: security-gme-dots-gateway
+    ports:
+      - "8030:8030"
+    environment:
+      DOTS_GATEWAY_BACKEND: heuristic
+      DOTS_GATEWAY_PORT: "8030"
+      # 若已部署 vLLM + dots.mocr，可改为：
+      # DOTS_GATEWAY_BACKEND: vllm
+      # DOTS_VLLM_BASE_URL: http://host.docker.internal:8000
+    restart: unless-stopped
+
+  rag-api:
+    build:
+      context: .
+    container_name: security-gme-rag-api
+    ports:
+      - "8020:8020"
+    env_file:
+      - .env
+    environment:
+      DOTS_OCR_BASE_URL: http://dots-ocr-gateway:8030
+      GME_RAG_PARSER_PROVIDER: dots_ocr
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - dots-ocr-gateway
+    restart: unless-stopped

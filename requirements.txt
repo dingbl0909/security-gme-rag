@@ -1,0 +1,9 @@
+fastapi
+python-multipart
+uvicorn
+pydantic
+python-dotenv
+redis
+pymilvus
+langgraph
+

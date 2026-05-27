@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+pymupdf
+pillow
+
+# 可选：图片 OCR（不装也能跑，仅无 ocr_text）
+# pytesseract

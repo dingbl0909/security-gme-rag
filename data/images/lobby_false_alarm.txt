@@ -1,0 +1,5 @@
+image_id: lobby_false_alarm
+modality: image
+description: 大厅入口地面反光区域被识别为人员目标，触发人员聚集误报。
+ocr_text: alarm type crowd_detect；false positive；reflection area。
+
